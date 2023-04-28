@@ -40,7 +40,7 @@
         <small><div style='color:red;'><?php echo form_error('retypepass'); ?></div></small><br>
         
 
-        <a href="/trytodo/home" class="btn btn-danger">Back</a>
+        <a href="<?php echo base_url();?>" class="btn btn-danger">Back</a>
         <button type="submit" class="btn btn-primary" style="float:right">Register</button>
       <?php echo form_close(); ?>
     </div>
