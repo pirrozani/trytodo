@@ -34,6 +34,7 @@
 
 			if($this->form_validation->run()=== FALSE){
 				$this->load->view('templates/header');
+				$this->load->view('users/menu');
 				$this->load->view('users/update',$data);
 				$this->load->view('templates/footer');
 			}else{

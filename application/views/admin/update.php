@@ -19,18 +19,11 @@
     input{
       margin-bottom: 2%;
     }
-    .menu{
-      margin-bottom: 5%;
-    }
+
   </style>
   <body>
   <div class="menu">
-    <center>
-      <a style="background-color:#f8f9fa" href="<?php echo base_url('admin/update');?>" >Admin Profile</a>
-      <a href="<?php echo base_url('admin/users_list');?>" >Users</a>    
-      <a href="<?php echo base_url('admin/all_posts');?>" >All Message History</a>
-      <a href="<?php echo base_url('admin/logout');?>" >Logout</a>
-  </center>
+
   </div>
 
     <div class="tocenter">

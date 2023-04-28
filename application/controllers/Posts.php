@@ -11,6 +11,7 @@
 
 			if ($this->form_validation->run() === false){
 				$this->load->view('templates/header');
+				$this->load->view('users/menu');
 				$this->load->view('posts/create', $data);
 				$this->load->view('templates/footer');
 			}else{
@@ -30,6 +31,7 @@
 			$user_id = $this->session->userdata('id');
 			$data['posts'] = $this->post_model->get_posts($user_id);
 			$this->load->view('templates/header');
+			$this->load->view('users/menu');
 			$this->load->view('posts/index', $data);
 			$this->load->view('templates/footer');
 		}
