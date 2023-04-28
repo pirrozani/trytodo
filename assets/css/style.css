@@ -1,5 +1,6 @@
 body{
     font-family: serif;
+    padding-top: 100px;
 }
 
 .active{
@@ -11,7 +12,10 @@ body{
 
 .navbar{
     margin-bottom: 5%;
-    position: sticky !important;
+    position: fixed !important;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
 }
 
 
@@ -25,8 +29,8 @@ body{
 }
 
 .tocenter{
-    width: 35%;
-    margin-top: 5%;
+    margin:auto;
+    width: 50%;
 }
 
 .error-message{
