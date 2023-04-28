@@ -1,5 +1,5 @@
 <?php echo form_open('posts/create') ?>
-    <div class="container">
+    <div class="tocenter">
       <div class="mb-3">
         <label for="message" class="form-label">
           <h3><?= $title; ?></h3>

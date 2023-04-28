@@ -2,11 +2,6 @@ body{
     font-family: serif;
 }
 
-.container{
-    margin-top: 5%;
-    margin: auto;
-}
-
 .active{
     background-color:#6eb7ff;
     border-radius: 15px;
@@ -19,13 +14,17 @@ body{
     margin: 5px 5px;
 }
 
+.container{
+    margin-top: 5%;
+    margin: auto;
+}
+
 .tocenter{
     width: 35%;
-    
     margin-top: 5%;
 }
 
-.validation_error{
+.error-message{
     color:red;
     font-size: xx-small;
 }
