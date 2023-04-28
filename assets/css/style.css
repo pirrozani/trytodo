@@ -4,16 +4,16 @@ body{
 
 .active{
     background-color:#6eb7ff;
+    width: max-content;
+    padding: 10px 50px; 
     border-radius: 15px;
-    width:max-content;
-    padding: 10px 50px;
-    
 }
 
 .navbar{
     margin-bottom: 5%;
-    position:relative;
+    position: sticky !important;
 }
+
 
 .nav-link{
     margin: 5px 5px;
