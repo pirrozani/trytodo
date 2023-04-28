@@ -10,6 +10,11 @@ body{
     
 }
 
+.navbar{
+    margin-bottom: 5%;
+    position:relative;
+}
+
 .nav-link{
     margin: 5px 5px;
 }
