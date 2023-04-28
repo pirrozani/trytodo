@@ -7,7 +7,7 @@
 
         <textarea class="form-control" name="message" rows="8"></textarea>
         <small>
-          <div style='float:left; color:red;'><?php echo validation_errors(); ?></div>
+          <div class="error-message"><?php echo validation_errors(); ?></div>
         </small>
         <div class="container"><br>
           <?php if ($this->session->flashdata('message_created')) : ?>
