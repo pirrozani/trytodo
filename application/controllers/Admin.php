@@ -3,7 +3,7 @@
 class Admin extends CI_Controller
 {
 
-	public function login()
+	public function login(): void
 	{
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
@@ -34,7 +34,7 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function logout()
+	public function logout(): void
 	{
 		$array_data = array('id', 'email', 'admin_logged_in');
 		$this->session->unset_userdata($array_data);
@@ -42,7 +42,7 @@ class Admin extends CI_Controller
 		redirect('admin/login');
 	}
 
-	public function update()
+	public function update(): void
 	{
 		if (!$this->session->userdata('admin_logged_in')) {
 			redirect('admin/login');
@@ -74,7 +74,7 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function users_list()
+	public function users_list(): void
 	{
 		if (!$this->session->userdata('admin_logged_in')) {
 			redirect('admin/login');
@@ -86,7 +86,7 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function user_message()
+	public function user_message(): void
 	{
 		if (!$this->session->userdata('admin_logged_in')) {
 			redirect('admin/login');
@@ -100,7 +100,7 @@ class Admin extends CI_Controller
 
 	}
 
-	public function edit_user()
+	public function edit_user(): void
 	{
 		if (!$this->session->userdata('admin_logged_in')) {
 			redirect('admin/login');
@@ -131,7 +131,7 @@ class Admin extends CI_Controller
 	}
 
 
-	public function all_posts()
+	public function all_posts(): void
 	{
 		if (!$this->session->userdata('admin_logged_in')) {
 			redirect('admin/login');
@@ -145,9 +145,9 @@ class Admin extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function delete_user($user_id)
+	public function delete_user($user_id): void
 	{
-		$result = $this->admin_model->delete_user($user_id);
+		$this->admin_model->delete_user($user_id);
 		$this->session->set_flashdata('success', 'You have successfully deleted the User!');
 		redirect(base_url('admin/users_list'));
 	}

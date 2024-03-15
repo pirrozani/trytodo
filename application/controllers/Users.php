@@ -3,7 +3,7 @@
 class Users extends CI_Controller
 {
 
-	public function register()
+	public function register(): void
 	{
 		$data['title'] = 'Register';
 		$this->form_validation->set_rules('firstname', 'First name', 'required');
@@ -32,7 +32,7 @@ class Users extends CI_Controller
 		}
 	}
 
-	public function login()
+	public function login(): void
 	{
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
@@ -63,7 +63,7 @@ class Users extends CI_Controller
 		}
 	}
 
-	public function logout()
+	public function logout(): void
 	{
 		$array_data = array('id', 'email', 'user_logged_in');
 		$this->session->unset_userdata($array_data);
@@ -71,7 +71,7 @@ class Users extends CI_Controller
 		redirect('users/login');
 	}
 
-	public function update()
+	public function update(): void
 	{
 		if (!$this->session->userdata('user_logged_in')) {
 			redirect('users/login');
@@ -104,7 +104,7 @@ class Users extends CI_Controller
 		}
 	}
 
-	public function check_email()
+	public function check_email(): void
 	{
 		$this->form_validation->set_rules('email', 'Email', 'required');
 
@@ -122,11 +122,11 @@ class Users extends CI_Controller
 				redirect('users/check_email');
 			}
 			$this->session->set_userdata('email', $email);
-			redirect('users/send_verification_code');
+			$this->send_verification_code();
 		}
 	}
 
-	public function send_verification_code()
+	public function send_verification_code(): void
 	{
 
 		$verification_code = rand(1000, 9999);
@@ -174,13 +174,13 @@ class Users extends CI_Controller
 		$this->email->message($message);
 
 		if ($this->email->send()) {
-			redirect('users/check_verification_email');
+			$this->check_verification_email();
 		} else {
 			show_error($this->email->print_debugger());
 		}
 	}
 
-	public function check_verification_email()
+	public function check_verification_email(): void
 	{
 		$data['email'] = $this->session->userdata('email');
 		$this->form_validation->set_rules('verification_code', 'Verification code', 'required');
@@ -196,7 +196,7 @@ class Users extends CI_Controller
 				$this->session->unset_userdata('verification_code');
 				$this->session->set_flashdata('valid_verification_code',
 					'Your Verification Code is correct, you can change your Password now!');
-				redirect('users/update_password');
+				$this->update_password();
 			} else {
 				$this->session->set_flashdata('invalid_verification_code',
 					'You have typed an invalid Verification Code.');
@@ -205,7 +205,7 @@ class Users extends CI_Controller
 		}
 	}
 
-	public function update_password()
+	public function update_password(): void
 	{
 		$data['title'] = 'Update your Password';
 

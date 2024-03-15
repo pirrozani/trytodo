@@ -3,7 +3,7 @@
 class Posts extends CI_Controller
 {
 
-	public function create()
+	public function create(): void
 	{
 		if (!$this->session->userdata('user_logged_in')) {
 			redirect('users/login');
@@ -28,7 +28,7 @@ class Posts extends CI_Controller
 		}
 	}
 
-	public function index()
+	public function index(): void
 	{
 		if (!$this->session->userdata('user_logged_in')) {
 			redirect('users/login');
